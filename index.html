@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       
+        @media only screen and (max-width: 990px) {
+           
+            .logo h1 {
+                font-size: 1.5em; 
+            }
+
+            .navbar-toggler {
+                font-size: 0.8em; 
+            }
+
+            .navbar-nav {
+                width: 100%;
+                text-align: center; 
+            }
+
+            .navbar-form {
+                margin-top: 10px; 
+            }
+
+            .content {
+                flex-direction: column; 
+            }
+
+            
+            .content-right img {
+                max-width: 100%; 
+                height: auto; 
+            }
+
+            
+        }
+
+        .content {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+       
+    </style>
+  
+    <title>FoodDash</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderButtons = document.querySelectorAll('.btn.btn-primary');
+
+            orderButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const dish = button.closest('.card-body').querySelector('.card-title').textContent.trim();
+
+                    switch (dish) {
+                        case 'Burger':
+                            window.location.href = 'burger.html';
+                            break;
+                        case 'Submarine':
+                            window.location.href = 'submarine.html';
+                            break;
+                        case 'Rice & Curry':
+                            window.location.href = 'rice-curry.html';
+                            break;
+                        case 'Pizza':
+                            window.location.href = 'pizza.html';
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="logo"><h1>Food<b>Dash</b></h1></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gallery</a>
+                </li>
+
+                <div class="navbar-form navbar-right">
+                    <input class="signin" type="submit" value="SignIn" name="signin"> 
+                    <input class="signup" type="submit" value="SignUp" name="signup"> 
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+ 
+
+    <section class="grid">
+        <div class="content">
+            <div class="content-left">
+                <div class="info">
+                    <h2>Order Your Best <br>Food Anytime</h2>
+                    <p>Hey, Our delicious food is waiting for you, <br>
+                    We are always near to you with fresh items of food.</p>
+                </div>
+                <button>Explore Food</button>
+            </div>
+
+            <br>
+            <div class="content-right">
+                <img src="images/img1.png" alt="">
+            </div>
+        </div>
+    </section>
+   
+    <section class="category">
+        <div class="list-items">
+            <h3>Popular Dishes</h3>
+            <div class="card-list">
+                <div class="card">
+                    <img src="images/burger.png" class="card-img-top" alt="Burger">
+                    <div class="card-body">
+                        <h5 class="card-title">Burger</h5>
+                        <p class="card-text">Delicious burger description</p>
+                        <a href="#" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/subm (1).png" class="card-img-top" alt="Submarine">
+                    <div class="card-body">
+                        <h5 class="card-title">Submarine</h5>
+                        <p class="card-text">Tasty submarine description</p>
+                        <a href="#" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/curry__1.png" class="card-img-top" alt="Rice & Curry">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice & Curry</h5>
+                        <p class="card-text">Savory rice & curry description</p>
+                        <a href="#" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/pizza-.png" class="card-img-top" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title">Pizza</h5>
+                        <p class="card-text">Tasty pizza description</p>
+                        <a href="#" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

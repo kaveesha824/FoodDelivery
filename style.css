@@ -1,0 +1,201 @@
+/* Reset CSS */
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Your existing CSS styles */
+body {
+    margin: 0 100px;
+    background-color: rgb(251, 240, 228);
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.navbar .logo h1 {
+    font-weight: 600;
+    font-family: sans-serif;
+    color: black;
+}
+
+.navbar .logo b {
+    color: chocolate;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar li {
+    margin-right: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.navbar ul .active::after {
+    content: '';
+    width: 50%;
+    height: 3px;
+    background-color: chocolate;
+    display: flex;
+    position: relative;
+    margin-left: 10px;
+}
+
+input {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.signin {
+    background: transparent;
+    border: none;
+}
+
+.signup {
+    background-color: #e38110;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.content-left {
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-left .info h2 {
+    font-size: 60px;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+}
+
+.content-left .info p {
+    font-size: 21px;
+    line-height: 2pc;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+}
+
+.content-left button {
+    padding: 10px 20px;
+    background-color: #e38110;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: sans-serif;
+    width: 200px;
+}
+
+.content-right img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    position: relative;
+    user-select: none;
+    animation: rotate 11s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.list-items {
+    width: 90%;
+    position: relative;
+    margin-top: 100px;
+}
+
+.list-items h3 {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.card {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    background: white;
+    outline: 2px solid #eeb36f;
+    margin-bottom: 10px;
+    margin: 50px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.card .card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card .card-body h5.card-title {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+
+.card .card-body p.card-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #777;
+}
+
+.card .card-body .btn {
+    padding: 8px 20px;
+    background-color: #e38110;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+}

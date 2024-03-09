@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Burger Order</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="mb-4">Burger Menu</h1>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form id="burgerForm">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="burger" value="Chrispy Chicken Burger">
+              Chrispy Chicken Burger (LKR 1100.00)
+            </label>
+
+            <div class="input-group">
+              <input type="number" class="form-control quantity" name="quantity" value="1" min="1">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-shopping-cart"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="burger" value="Crispy Chicken Burger with Cheese">
+              Crispy Chicken Burger with Cheese (LKR 1250.00)
+            </label>
+            <div class="input-group">
+              <input type="number" class="form-control quantity" name="quantity" value="1" min="1">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-shopping-cart"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="burger" value="Grilled Chicken Burger">
+              Grilled Chicken Burger (LKR 1400.00)
+            </label>
+            <div class="input-group">
+              <input type="number" class="form-control quantity" name="quantity" value="1" min="1">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-shopping-cart"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="burger" value="Chicken Burger with Cheese">
+              Chicken Burger with Cheese (LKR 1350.00)
+            </label>
+            <div class="input-group">
+              <input type="number" class="form-control quantity" name="quantity" value="1" min="1">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-shopping-cart"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="burger" value="Beef Burger">
+              Beef Burger (LKR 1600.00)
+            </label>
+            <div class="input-group">
+              <input type="number" class="form-control quantity" name="quantity" value="1" min="1">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-shopping-cart"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="burger" value="Beef Burger with Cheese">
+              Beef Burger with Cheese (LKR 1700.00)
+            </label>
+            <div class="input-group">
+              <input type="number" class="form-control quantity" name="quantity" value="1" min="1">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-shopping-cart"></i></span>
+              </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn ">Calculate Total</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="text-md-right">Food<b>Dash</b></h3>
+          </div>
+          <div class="col-md-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Quantity</th>
+                  <th>Burger</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody id="billTable"></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2"><strong>Total Price:</strong></td>
+                  <td id="totalPrice" class="text-right">LKR 0.00</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-6">
+        <a href="index.html" class="btn btn-secondary">Back to Home</a>
+    </div>
+</div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#burgerForm').submit(function(event){
+        event.preventDefault();
+        
+        let totalPrice = 0;
+        let billDetails = ''; // Initialize an empty string to store bill details
+
+        $('input[name="burger"]:checked').each(function(index){
+          let burgerName = $(this).parent().text().split(' (')[0]; // Extract burger name
+          let burgerPrice = parseFloat($(this).parent().text().match(/\d+\.\d+/)[0]);
+          let quantity = parseInt($('.quantity').eq(index).val());
+          let burgerTotalPrice = burgerPrice * quantity;
+          
+          // Append burger details to billDetails string
+          billDetails += `<tr><td>${quantity}</td><td>${burgerName}</td><td class="text-right">LKR ${burgerTotalPrice.toFixed(2)}</td></tr>`;
+          
+          totalPrice += burgerTotalPrice;
+        });
+
+        // Display bill details and total price
+        $('#billTable').html(billDetails);
+        $('#totalPrice').text(`LKR ${totalPrice.toFixed(2)}`);
+      });
+    });
+  </script>
+  <style>
+    body{
+        background-color: rgb(251, 240, 228);
+    }
+
+    .container h1{
+        font-family: sans-serif;
+        color: chocolate;
+        font-weight: 600;
+    }
+
+    .input-group input{
+        background-color: rgb(231, 186, 130); 
+        
+    }
+   .form-group .input-group{
+        width: 150px;
+    }
+
+.btn{
+    background-color: rgb(231, 134, 56);
+    border: none;
+    margin-top: 30px;
+    font-family: sans-serif;
+    color: aliceblue;
+    font-weight: 300;
+    
+}
+
+label{
+    font-family: sans-serif;
+    font-weight: 200;
+
+}
+td{
+    font-family: sans-serif;
+    color: rgb(17, 14, 11);
+    font-size: 20px;
+}
+.col-md-6 .row h3{
+    font-family: sans-serif;
+    color: rgb(231, 134, 56);
+}
+
+tr{
+    font-family: sans-serif;
+    color: rgb(58, 41, 41);
+}
+
+.table{
+        background-color: rgb(230, 217, 203);
+        width: 600px;
+    
+}
+
+
+
+  
+
+  </style>
+</body>
+</html>
